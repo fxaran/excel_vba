@@ -1,0 +1,65 @@
+Sub Sum_Oper_Mes()
+    
+'   ***************************************************************
+'   Declarar variables
+'   ***************************************************************
+    Dim SumCantAprob(0 To 23) As Long
+    Dim SumMontAprob(0 To 23) As Long
+    Dim SumCantRecha(0 To 23) As Long
+    Dim SumMontRecha(0 To 23) As Long
+    Dim Sum(0 To 3) As Long
+    Dim rw As Integer
+    Dim linea As Integer
+    Dim j As Integer
+'   ***************************************************************
+    
+    linea = 3
+    j = 23
+    Sum(0) = 0
+    Sum(1) = 0
+    Sum(2) = 0
+    Sum(3) = 0
+
+    Range("C" & linea).Select
+    
+    For rw = 0 To 23
+        For col = 0 To 30
+            Sum(0) = Sum(0) + ActiveCell.Value
+            ActiveCell.Offset(0, 1).Select
+            Sum(1) = Sum(1) + ActiveCell.Value
+            ActiveCell.Offset(0, 1).Select
+            Sum(2) = Sum(2) + ActiveCell.Value
+            ActiveCell.Offset(0, 1).Select
+            Sum(3) = Sum(3) + ActiveCell.Value
+            ActiveCell.Offset(0, 2).Select
+        Next col
+        SumCantAprob(rw) = Sum(0)
+        SumMontAprob(rw) = Sum(1)
+        SumCantRecha(rw) = Sum(2)
+        SumMontRecha(rw) = Sum(3)
+        Sum(0) = 0
+        Sum(1) = 0
+        Sum(2) = 0
+        Sum(3) = 0
+        linea = linea + 1
+        Range("C" & linea).Select
+    Next rw
+    Debug.Print SumCantAprob(23)
+    
+    linea = 32
+    Range("C" & linea).Select
+    For rw = 0 To 23
+            ActiveCell.Value = SumCantAprob(rw)
+            ActiveCell.Offset(0, 1).Select
+            ActiveCell.Value = SumMontAprob(rw)
+            ActiveCell.Offset(0, 1).Select
+            ActiveCell.Value = SumCantRecha(rw)
+            ActiveCell.Offset(0, 1).Select
+            ActiveCell.Value = SumMontRecha(rw)
+            ActiveCell.Offset(0, 1).Select
+        linea = linea + 1
+        Range("C" & linea).Select
+    Next rw
+
+
+End Sub
