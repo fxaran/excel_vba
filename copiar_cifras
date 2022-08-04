@@ -1,0 +1,14 @@
+Sub copiarcifra()
+    
+'    ActiveCell.FormulaR1C1 = "=" & Sheets("Hoja2").Cells(1, 1).Address
+    Dim x As Integer
+    Dim Col As Integer
+    Dim S As String
+    
+    Col = 2
+    For x = 1 To 19
+        Cells((2 + x), 2) = Cells(43, Col).Value
+        Col = Col + 4
+    Next x
+
+End Sub
