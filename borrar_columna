@@ -1,0 +1,7 @@
+Sub borrarColumna()
+    For x = 1 To 19
+        ActiveCell.Offset(0, 0).Columns("A:A").EntireColumn.Select
+        Selection.Delete Shift:=xlRight
+        ActiveCell.Offset(0, 4).Select
+    Next x
+End Sub
