@@ -1,0 +1,26 @@
+Sub crearsuma()
+    Dim x As Integer
+    Dim Row, Col As Integer
+    Dim S As String
+    
+'    Range("A6").Select
+'    ActiveCell.FormulaR1C1 = "=R" & Row & "C" & Col
+    For x = 1 To 19
+        
+        Row = ActiveCell.Row
+        Col = ActiveCell.Column
+        
+        If S = "" Then
+            S = "R" & Row & "C" & Col
+        Else
+            S = S & "+" & "R" & Row & "C" & Col
+        End If
+        
+        ActiveCell.Offset(0, 4).Select
+    Next x
+    Debug.Print S
+    
+    Range("A9").Select
+    ActiveCell.FormulaR1C1 = "=" & S
+
+End Sub
