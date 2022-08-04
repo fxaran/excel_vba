@@ -1,0 +1,3 @@
+Sub CopiarRango()
+  Range("nombre_del_rango").Copy
+End Sub
